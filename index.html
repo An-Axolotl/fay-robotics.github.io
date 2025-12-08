@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <!-- Google analytics tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STGLQW4BJX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-STGLQW4BJX');
+    </script>
+
+    <!-- Title -->
+    <title> Kehlani Fay</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: #0a0a0a;
+        color: #e5e5e5;
+        line-height: 1.7;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+      }
+
+      a {
+        color: #888888;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        border-bottom: 1px solid transparent;
+      }
+
+      a:hover {
+        color: #ffffff;
+        border-bottom: 1px solid #888888;
+      }
+
+      /* Main Container */
+      #main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 2rem 6rem 2rem;
+      }
+
+      /* Header Section */
+      #intro {
+        margin-bottom: 4rem;
+      }
+
+      #container {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 3rem;
+        align-items: start;
+        margin-bottom: 3rem;
+      }
+
+      #intro-image {
+        position: relative;
+      }
+
+      #intro-image img {
+        width: 100%;
+        border-radius: 4px;
+        display: block;
+      }
+
+      #header-content {
+        padding-top: 0;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+        font-family: 'Crimson Text', serif;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .scholar-link {
+        color: #888888;
+        font-size: 1.3rem;
+        border: none;
+        transition: color 0.2s ease;
+      }
+
+      .scholar-link:hover {
+        color: #ffffff;
+      }
+
+      #intro-text p {
+        color: #cccccc;
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+        font-family: 'Crimson Text', serif;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #1a1a1a;
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ffffff;
+        margin-bottom: 0.3rem;
+        line-height: 1.5;
+      }
+
+      /* Publication Styles */
+      .publication-item {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #1a1a1a;
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+      }
+
+      .publication-item:last-child {
+        border-bottom: none;
+      }
+
+      .publication-thumbnail {
+        flex-shrink: 0;
+        width: 160px;
+      }
+
+      .publication-thumbnail img,
+      .publication-thumbnail video {
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #1a1a1a;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .publication-thumbnail img:last-child,
+      .publication-thumbnail video:last-child {
+        margin-bottom: 0;
+      }
+
+      .publication-thumbnail iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 4px;
+        border: 1px solid #1a1a1a;
+        display: block;
+      }
+
+      .publication-content {
+        flex: 1;
+      }
+
+      .publication-title {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+      }
+
+      .publication-authors {
+        color: #999999;
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .publication-venue {
+        color: #888888;
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 0.6rem;
+      }
+
+      .publication-links {
+        font-size: 0.9rem;
+      }
+
+      .publication-links a {
+        color: #888888;
+        margin-right: 1rem;
+      }
+
+      .publication-links a:hover {
+        color: #ffffff;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        #container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        #intro-image {
+          max-width: 200px;
+          margin: 0 auto;
+        }
+
+        h1 {
+          font-size: 2rem;
+          text-align: center;
+          justify-content: center;
+        }
+
+        .publication-item {
+          flex-direction: column;
+        }
+
+        .publication-thumbnail {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        #main {
+          padding: 3rem 1.5rem;
+        }
+      }
+
+      /* Smooth Scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Selection Color */
+      ::selection {
+        background-color: #2a2a2a;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <div id="main">
+      <div id="intro">
+        <div id="container">
+          <div id="intro-image">
+            <img src="images/profile-color.jpg" alt="Kehlani Fay">
+          </div>
+          
+          <div id="header-content">
+            <h1>
+              Kehlani Fay
+              <a href="https://scholar.google.com/citations?hl=en&authuser=4&user=WYBxpRoAAAAJ" target="_blank" aria-label="Google Scholar" class="scholar-link">
+                <i class="fab fa-google"></i>
+              </a>
+            </h1>
+            
+            <div id="intro-text">
+              <p>
+               My research is in Robot Learning, studying embodied intelligence. Embodiement informs both cognition and behavior - so I am interested in understanding what attributes inform intelligence.
+              </p>
+
+              <p>
+              I currently focus on merging intelligent control and hardware design for improving physical intelligence. I am advised by <a href="https://scholar.google.com/citations?user=Y8O9N_0AAAAJ" target="_blank"> Professor Xiaolong Wang </a> and <a href="https://scholar.google.com/citations?user=0kOHVOkAAAAJ&hl=en" target="_blank"> Professor Michael Tolley </a>. I have been fortunate to work with <a href="https://scholar.google.com/citations?hl=en&user=1P8Zu04AAAAJ" target="_blank"> Professor Hao Su </a> and <a href="https://scholar.google.com/citations?hl=en&user=AEsPCAUAAAAJ" target="_blank"> Professor Deepak Pathak </a>. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Publications</h2>
+      
+      <div class="publication-item">
+        <div class="publication-thumbnail">
+          <video playsinline="" muted="" autoplay="" loop="">
+            <source src="video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">
+            <a href="https://arxiv.org/abs/2512.03743">Cross-embodied Co-design for Dexterous Hands</a>
+          </div>
+          <div class="publication-authors">
+            Kehlani Fay, Darin Anthony Djapri, Anya Zorin, James Clinton, Ali El Lahib, Hao Su, Michael T. Tolley, Sha Yi, Xiaolong Wang
+          </div>
+          <div class="publication-links">
+            <a href="https://an-axolotl.github.io/co-design-for-dexterity.github.io/">project page</a>
+            <a href="https://arxiv.org/abs/2512.03743">arXiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="publication-item">
+      <div class="publication-thumbnail">
+        <video playsinline="" muted="" autoplay="" loop="">
+            <source src="images/loco-scale.mp4" type="video/mp4">
+        </video>
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">
+            <a href="https://arxiv.org/abs/2505.05753">Towards Embodiment Scaling Laws in Robot Locomotion</a>
+          </div>
+          <div class="publication-authors">
+            Bo Ai, Liu Dai, Nico Bohlinger, Dichen Li, Tongzhou Mu, Zhanxin Wu, K. Fay, Henrik I. Christensen, Jan Peters, Hao Su
+          </div>
+          <div class="publication-venue">
+            Conference on Robot Learning (CoRL), 2025
+          </div>
+          <div class="publication-links">
+            <a href="https://embodiment-scaling-laws.github.io/">project page</a>
+            <a href="https://arxiv.org/abs/2505.05753">arXiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-thumbnail">
+          <img src="images/particle.gif" alt="Multi-AUV Marine Life Tracking" onerror="this.style.display='none'">
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WYBxpRoAAAAJ&authuser=4&citation_for_view=WYBxpRoAAAAJ:u-x6o8ySG0sC">Multi-AUV Marine Life Tracking with Single Hydrophone Payloads via a Hidden Markov Model Equipped Particle Filter</a>
+          </div>
+          <div class="publication-authors">
+            Christopher Herrera, Kehlani Fay, Christopher Clark, Alberto Soto, Christopher G Lowe, Mario Espinoza
+          </div>
+          <div class="publication-links">
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WYBxpRoAAAAJ&authuser=4&citation_for_view=WYBxpRoAAAAJ:u-x6o8ySG0sC">paper</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="publication-item">
+        <div class="publication-thumbnail">
+          <img src="images/robotplat.gif" alt="Robot platform">
+          <img src="images/robotplan.gif" alt="Robot planning">
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">
+            <a href="https://dlnext.acm.org/doi/10.1145/3555776.3577749">Multi-Robot Expansive Planning and Trajectory Evaluation for Tracking and Localization of Marine Life</a>
+          </div>
+          <div class="publication-authors">
+            Kehlani Fay, Michael Giordano, Alberto Soto, Christopher Clark, Emily Spurgeon, James Anderson, & Christopher Lowe
+          </div>
+          <div class="publication-venue">
+            Symposium On Applied Computing, 2023
+          </div>
+          <div class="publication-links">
+            <a href="https://docs.google.com/presentation/d/1T-2BDdvBwcgFfQvNIiSkEVgcK2PtoIZC/edit?usp=sharing&ouid=114461033462074451636&rtpof=true&sd=true">slides</a>
+            <a href="https://drive.google.com/file/d/1_m9TssNzQBcxguMASQgxSkwmWkRwgDtT/view?usp=sharing">pdf</a>
+          </div>
+        </div>
+      </div>
+      
+      <h2> Works that never fully fermented, but still cool :) </h2>
+
+      <div class="publication-item">
+        <div class="publication-thumbnail">
+          <img src="images/TrackManiaWorkshop.png" alt="TrackMania">
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">
+            Risk Aware Racing Agents: Learning Adaptive Policies in Competitive Racing Games
+          </div>
+          <div class="publication-authors">
+            Kehlani Fay & Victor Shia
+          </div>
+          <div class="publication-venue">
+            RSS Workshop
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
