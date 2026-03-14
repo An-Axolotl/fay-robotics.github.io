@@ -139,14 +139,14 @@
       }
       
       .professor-link {
-	  color: #98DAED;
-	  border-bottom: 1px solid #888888;
-	}
+        color: #98DAED;
+        border-bottom: 1px solid #888888;
+      }
 
-	.professor-link:hover {
-	  color: #ffffff;
-	  border-bottom: 1px solid #ffffff;
-	}
+      .professor-link:hover {
+        color: #ffffff;
+        border-bottom: 1px solid #ffffff;
+      }
 
       /* Publication Styles */
       .publication-item {
@@ -318,8 +318,8 @@
             Kehlani Fay, Darin Anthony Djapri, Anya Zorin, James Clinton, Ali El Lahib, Hao Su, Michael T. Tolley, Sha Yi, Xiaolong Wang
           </div>
           <div class="publication-venue">
-	  	International Conference on Learning Representations (ICLR), 2026
-	  </div>
+            International Conference on Learning Representations (ICLR), 2026
+          </div>
           <div class="publication-links">
             <a href="https://an-axolotl.github.io/HouseofDextra/">project page</a>
             <a href="https://arxiv.org/abs/2512.03743">arXiv</a>
@@ -327,9 +327,9 @@
         </div>
       </div>
 
-	 <div class="publication-item">
+      <div class="publication-item">
         <div class="publication-thumbnail">
-          <video playsinline="" muted="" autoplay="" loop="">
+          <video id="catch-video" playsinline="" muted="" autoplay="" loop="">
             <source src="catch.mp4" type="video/mp4">
           </video>
         </div>
@@ -341,8 +341,8 @@
             Kehlani Fay*, Arth Shukla*, Patrick Liu, Darin Djapri, Alexiy Buynitsky, Nicklas Hansen
           </div>
           <div class="publication-venue">
-	  	Pre-Arxiv, Conference Submission
-	  </div>
+            Pre-Arxiv, Conference Submission
+          </div>
           <div class="publication-links">
             <a href="https://anonymous-user-conferences.github.io/IROS2026/">pre-release project page</a>
             <a href="https://drive.google.com/file/d/1AoS01Q21ZQcORHxF-nTVMgbi8HrWivFN/view?usp=sharing">pre-Arxiv</a>
@@ -350,12 +350,11 @@
         </div>
       </div>
 
-
       <div class="publication-item">
-      <div class="publication-thumbnail">
-        <video playsinline="" muted="" autoplay="" loop="">
+        <div class="publication-thumbnail">
+          <video playsinline="" muted="" autoplay="" loop="">
             <source src="images/loco-scale.mp4" type="video/mp4">
-        </video>
+          </video>
         </div>
         <div class="publication-content">
           <div class="publication-title">
@@ -432,5 +431,22 @@
         </div>
       </div>
     </div>
+
+    <script>
+      const catchVideo = document.getElementById('catch-video');
+      const startTime = 25;   // 0:25
+      const endTime = 128;    // 2:08
+
+      catchVideo.addEventListener('loadedmetadata', () => {
+        catchVideo.currentTime = startTime;
+      });
+
+      catchVideo.addEventListener('timeupdate', () => {
+        if (catchVideo.currentTime >= endTime) {
+          catchVideo.currentTime = startTime;
+        }
+      });
+    </script>
+
   </body>
 </html>
