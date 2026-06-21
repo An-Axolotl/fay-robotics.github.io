@@ -154,7 +154,7 @@
 
       .publication-thumbnail {
         flex-shrink: 0;
-        width: 160px;
+        width: 250px;
       }
 
       .publication-thumbnail img,
@@ -249,6 +249,52 @@
         }
       }
 
+      /* Art Section */
+      #art-box {
+        border: 1px solid #2a2a2a;
+        border-radius: 6px;
+        padding: 1.5rem;
+        background-color: #0d0d0d;
+      }
+
+      #art-grid {
+        column-count: 3;
+        column-gap: 0.8rem;
+      }
+
+      #art-grid img {
+        width: 100%;
+        display: block;
+        margin-bottom: 0.8rem;
+        border-radius: 3px;
+        border: 1px solid #1a1a1a;
+        break-inside: avoid;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      #art-grid img:hover {
+        opacity: 0.85;
+        transform: scale(1.01);
+      }
+
+      #art-empty {
+        color: #777777;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        #art-grid {
+          column-count: 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #art-grid {
+          column-count: 1;
+        }
+      }
+
       /* Smooth Scrolling */
       html {
         scroll-behavior: smooth;
@@ -301,7 +347,7 @@
         </div>
         <div class="publication-content">
           <div class="publication-title">
-            <a href="https://arxiv.org/abs/2512.03743">Cross-embodied Co-design for Dexterous Hands</a>
+            <a href="https://arxiv.org/abs/2512.03743">House of Dextra: Cross-embodied Co-design for Dexterous Hands</a>
           </div>
           <div class="publication-authors">
             Kehlani Fay, Darin Anthony Djapri, Anya Zorin, James Clinton, Ali El Lahib, Hao Su, Michael T. Tolley, Sha Yi, Xiaolong Wang
@@ -309,6 +355,29 @@
           <div class="publication-links">
             <a href="https://an-axolotl.github.io/co-design-for-dexterity.github.io/">project page</a>
             <a href="https://arxiv.org/abs/2512.03743">arXiv</a>
+          </div>
+        </div>
+      </div>
+      
+       <div class="publication-item">
+        <div class="publication-thumbnail">
+          <video id="catch-video" playsinline="" muted="" autoplay="" loop="">
+            <source src="images/catch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">
+            <a href="https://drive.google.com/file/d/1AoS01Q21ZQcORHxF-nTVMgbi8HrWivFN/view?usp=sharing">Catch It All!: Generalizable Dynamic Catching with a Dexterous Hand</a>
+          </div>
+          <div class="publication-authors">
+            Kehlani Fay*, Arth Shukla*, Patrick Liu, Darin Djapri, Alexiy Buynitsky, Nicklas Hansen
+          </div>
+          <div class="publication-venue">
+            Pre-Arxiv, Conference Submission
+          </div>
+          <div class="publication-links">
+            <a href="https://anonymous-user-conferences.github.io/IROS2026/">pre-release project page</a>
+            <a href="https://drive.google.com/file/d/1AoS01Q21ZQcORHxF-nTVMgbi8HrWivFN/view?usp=sharing">pre-Arxiv</a>
           </div>
         </div>
       </div>
@@ -375,24 +444,64 @@
         </div>
       </div>
       
-      <h2> Works that never fully fermented, but still cool :) </h2>
+      <h2 id="art">Art and Misc.</h2>
 
-      <div class="publication-item">
-        <div class="publication-thumbnail">
-          <img src="images/TrackManiaWorkshop.png" alt="TrackMania">
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">
-            Risk Aware Racing Agents: Learning Adaptive Policies in Competitive Racing Games
-          </div>
-          <div class="publication-authors">
-            Kehlani Fay & Victor Shia
-          </div>
-          <div class="publication-venue">
-            RSS Workshop
-          </div>
-        </div>
+      <div id="art-box">
+        <div id="art-grid"></div>
+        <p id="art-empty" style="display:none;">No art found yet — add images to the <code>art/</code> folder and list them in <code>art/manifest.json</code>.</p>
       </div>
     </div>
+
+    <script>
+      // To add new art: drop the image file into the art/ folder, then add
+      // its filename to this list.
+      const artImages = [
+        "concertPhoto.png",
+        "cubist.png",
+        "dynamics.png",
+        "lampprint.png",
+        "lavalamps.png",
+        "naut.png",
+        "stars.jpg",
+        "street.jpeg",
+        "sunflower.jpg",
+        "fall.jpeg",
+        "truck.jpeg",
+        "WoodenStainedGlass.png",
+        "CADFrontProfile.png"
+      ];
+
+      const artGrid = document.getElementById('art-grid');
+      if (artImages.length) {
+        artImages.forEach(filename => {
+          const img = document.createElement('img');
+          img.src = 'art/' + filename;
+          img.alt = filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+          img.loading = 'lazy';
+          artGrid.appendChild(img);
+        });
+      } else {
+        document.getElementById('art-empty').style.display = 'block';
+      }
+    </script>
+
+    <script>
+      // Play only a specific clip range of the Catch It All! video (0:25 - 2:08),
+      // looping within that window instead of the full file.
+      const catchVideo = document.getElementById('catch-video');
+      const startTime = 25;   // 0:25
+      const endTime = 128;    // 2:08
+
+      catchVideo.addEventListener('loadedmetadata', () => {
+        catchVideo.currentTime = startTime;
+      });
+
+      catchVideo.addEventListener('timeupdate', () => {
+        if (catchVideo.currentTime >= endTime) {
+          catchVideo.currentTime = startTime;
+        }
+      });
+    </script>
+
   </body>
 </html>
