@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
     
     <style>
       /* Global Styles */
@@ -34,7 +35,7 @@
       }
 
       :root {
-        --accent-red: #e0454f;
+        --accent-yellow: #ffd23f;
       }
 
       body {
@@ -75,12 +76,13 @@
         display: grid;
         grid-template-columns: 200px 1fr;
         gap: 3rem;
-        align-items: start;
+        align-items: center;
         margin-bottom: 3rem;
       }
 
       #intro-image {
         position: relative;
+        margin-top: 0.75rem;
       }
 
       #intro-image img {
@@ -94,30 +96,54 @@
       }
 
       h1 {
-        font-size: 2.5rem;
-        font-weight: 600;
+        font-size: 2.3rem;
+        font-weight: 700;
         color: #ffffff;
         margin-bottom: 1.5rem;
         font-family: 'Crimson Text', serif;
         line-height: 1.2;
         display: flex;
         align-items: center;
+        justify-content: center;
+        text-align: center;
         gap: 0.8rem;
+        background-color: #151515;
+        border: 1px solid #232323;
+        border-radius: 8px;
+        padding: 1.1rem 1.6rem;
       }
 
-      .scholar-link {
-        color: #888888;
-        font-size: 1.3rem;
-        border: none;
-        transition: color 0.2s ease;
+      .social-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.3rem;
+        margin-top: 1.1rem;
       }
 
-      .scholar-link:hover {
+      .social-links a {
         color: #ffffff;
+        font-size: 1.4rem;
+        line-height: 1;
+        border: none;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--accent-yellow);
+        border: none;
+        transform: translateY(-2px);
+      }
+
+      .social-links svg {
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+        display: block;
       }
 
       #intro-text p {
-        color: #cccccc;
+        color: #ffffff;
         line-height: 1.8;
         margin-bottom: 1.2rem;
         font-size: 1rem;
@@ -129,8 +155,8 @@
       }
 
       #intro-text a:hover {
-        color: var(--accent-red);
-        border-bottom: 1px solid var(--accent-red);
+        color: var(--accent-yellow);
+        border-bottom: 1px solid var(--accent-yellow);
       }
 
       h2 {
@@ -156,24 +182,18 @@
       }
 
       .section-box h2 {
-        margin-top: 0;
-        margin-bottom: 1.75rem;
-        padding-bottom: 0.9rem;
+        margin: -2rem -2rem 1.5rem -2rem;
+        padding: 0.85rem 2rem;
+        font-family: 'Crimson Text', serif;
         font-size: 1.5rem;
+        font-weight: 700;
         letter-spacing: 0.01em;
-        border-bottom: 1px solid #1f1f1f;
-        display: flex;
-        align-items: center;
-      }
-
-      .section-box h2::before {
-        content: '';
-        display: inline-block;
-        width: 4px;
-        height: 1.2rem;
-        background-color: var(--accent-red);
-        border-radius: 2px;
-        margin-right: 0.7rem;
+        text-transform: none;
+        color: #ffffff;
+        background-color: #151515;
+        border-bottom: 1px solid #232323;
+        border-radius: 8px 8px 0 0;
+        display: block;
       }
 
       .section-box:last-child {
@@ -190,16 +210,18 @@
 
       /* Publication Styles */
       .publication-item {
-        margin-bottom: 2.5rem;
-        padding-bottom: 2.5rem;
-        border-bottom: 1px solid #1a1a1a;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        background-color: #151515;
+        border: 1px solid #232323;
+        border-radius: 8px;
         display: flex;
         gap: 2rem;
         align-items: flex-start;
       }
 
       .publication-item:last-child {
-        border-bottom: none;
+        margin-bottom: 0;
       }
 
       .publication-thumbnail {
@@ -251,8 +273,8 @@
       }
 
       .publication-title a:hover {
-        color: var(--accent-red);
-        border-bottom: 1px solid var(--accent-red);
+        color: var(--accent-yellow);
+        border-bottom: 1px solid var(--accent-yellow);
       }
 
       .publication-authors {
@@ -285,8 +307,10 @@
       .publication-links {
         font-size: 0.9rem;
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 0.6rem;
+        overflow-x: auto;
+        padding-bottom: 0.2rem;
       }
 
       .publication-links a {
@@ -295,7 +319,7 @@
       }
 
       .publication-links a:hover {
-        color: var(--accent-red);
+        color: var(--accent-yellow);
       }
 
       .publication-links a.pub-btn {
@@ -303,13 +327,14 @@
       }
 
       .publication-links a.pub-btn:hover {
-        color: #ffffff;
+        color: #000000;
       }
 
       /* Publication action buttons (project page / arXiv / abstract / bibtex) */
       .pub-btn {
         display: inline-flex;
         align-items: center;
+        flex-shrink: 0;
         background-color: #ffffff;
         border: 1px solid #ffffff;
         color: #000000;
@@ -329,16 +354,16 @@
       }
 
       .pub-btn:hover {
-        color: #ffffff;
-        border-color: var(--accent-red);
-        background-color: var(--accent-red);
+        color: #000000;
+        border-color: var(--accent-yellow);
+        background-color: var(--accent-yellow);
         text-decoration: none;
       }
 
       .pub-btn.active {
-        color: #ffffff;
-        border-color: var(--accent-red);
-        background-color: var(--accent-red);
+        color: #000000;
+        border-color: var(--accent-yellow);
+        background-color: var(--accent-yellow);
       }
 
       .pub-btn .fa-chevron-down {
@@ -503,26 +528,46 @@
   <body id="body">
     <div id="main">
       <div id="intro">
+        <h1>
+          Kehlani Fay 🤖
+        </h1>
+
         <div id="container">
           <div id="intro-image">
             <img src="images/profile-color.jpg" alt="Kehlani Fay">
+            <div class="social-links">
+              <a href="https://scholar.google.com/citations?hl=en&authuser=4&user=WYBxpRoAAAAJ" target="_blank" aria-label="Google Scholar">
+                <i class="ai ai-google-scholar"></i>
+              </a>
+              <a href="https://github.com/An-Axolotl" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://x.com/Kehlani_Fay" target="_blank" aria-label="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="mailto:kfay@ucsd.edu" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
           </div>
           
           <div id="header-content">
-            <h1>
-              Kehlani Fay
-              <a href="https://scholar.google.com/citations?hl=en&authuser=4&user=WYBxpRoAAAAJ" target="_blank" aria-label="Google Scholar" class="scholar-link">
-                <i class="fab fa-google"></i>
-              </a>
-            </h1>
             
             <div id="intro-text">
               <p>
-               My research is in Robot Learning, studying embodied intelligence. Embodiement informs both cognition and behavior - so I am interested in understanding what attributes inform intelligence.
+              Hi! I am a robotics researcher studying how to combine generative design and control for creative discovery.
               </p>
 
               <p>
-              I currently focus on merging intelligent control and hardware design for improving physical intelligence. I am advised by <a href="https://scholar.google.com/citations?user=Y8O9N_0AAAAJ" target="_blank"> Professor Xiaolong Wang </a> and <a href="https://scholar.google.com/citations?user=0kOHVOkAAAAJ&hl=en" target="_blank"> Professor Michael Tolley </a>. I have been fortunate to work with <a href="https://scholar.google.com/citations?hl=en&user=1P8Zu04AAAAJ" target="_blank"> Professor Hao Su </a> and <a href="https://scholar.google.com/citations?hl=en&user=AEsPCAUAAAAJ" target="_blank"> Professor Deepak Pathak </a>. 
+              I aim to help us discover new designs beyond human intuition and help understand synergy between design and physical intelligence.
+              </p>
+
+              <p>
+              I am advised by <a href="https://scholar.google.com/citations?user=Y8O9N_0AAAAJ" target="_blank">Professor Xiaolong Wang</a> and <a href="https://scholar.google.com/citations?user=0kOHVOkAAAAJ&hl=en" target="_blank">Professor Michael Tolley</a>. I have been fortunate to work with <a href="https://scholar.google.com/citations?hl=en&user=1P8Zu04AAAAJ" target="_blank">Professor Hao Su</a> and <a href="https://scholar.google.com/citations?hl=en&user=AEsPCAUAAAAJ" target="_blank">Professor Deepak Pathak</a>.
+              </p>
+
+              <p>
+              Feel free to reach out if you want to collaborate on co-design, design discovery, or explore some interesting questions together :)
               </p>
             </div>
           </div>
