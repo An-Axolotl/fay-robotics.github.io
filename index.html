@@ -307,10 +307,17 @@
       .publication-links {
         font-size: 0.9rem;
         display: flex;
-        flex-wrap: nowrap;
-        gap: 0.6rem;
-        overflow-x: auto;
-        padding-bottom: 0.2rem;
+        flex-wrap: wrap;
+        row-gap: 0.6rem;
+        column-gap: 0.6rem;
+        overflow-x: visible;
+        overflow-y: visible;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .publication-links::-webkit-scrollbar {
+        display: none;
       }
 
       .publication-links a {
