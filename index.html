@@ -33,6 +33,10 @@
         box-sizing: border-box;
       }
 
+      :root {
+        --accent-red: #e0454f;
+      }
+
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         background-color: #0a0a0a;
@@ -119,6 +123,16 @@
         font-size: 1rem;
       }
 
+      #intro-text a {
+        color: #e8e8e8;
+        border-bottom: 1px solid #666666;
+      }
+
+      #intro-text a:hover {
+        color: var(--accent-red);
+        border-bottom: 1px solid var(--accent-red);
+      }
+
       h2 {
         font-size: 1.8rem;
         font-weight: 600;
@@ -128,6 +142,42 @@
         font-family: 'Crimson Text', serif;
         padding-bottom: 0.5rem;
         border-bottom: 1px solid #1a1a1a;
+      }
+
+      /* Section card — groups a header with its content in a bordered box,
+         used for Publications, Art, and Hiking Adventures. */
+      .section-box {
+        border: 1px solid #2a2a2a;
+        border-radius: 8px;
+        background-color: #0d0d0d;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        overflow: hidden;
+      }
+
+      .section-box h2 {
+        margin-top: 0;
+        margin-bottom: 1.75rem;
+        padding-bottom: 0.9rem;
+        font-size: 1.5rem;
+        letter-spacing: 0.01em;
+        border-bottom: 1px solid #1f1f1f;
+        display: flex;
+        align-items: center;
+      }
+
+      .section-box h2::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 1.2rem;
+        background-color: var(--accent-red);
+        border-radius: 2px;
+        margin-right: 0.7rem;
+      }
+
+      .section-box:last-child {
+        margin-bottom: 0;
       }
 
       h3 {
@@ -181,6 +231,8 @@
 
       .publication-content {
         flex: 1;
+        min-width: 0;
+        color: #ffffff;
       }
 
       .publication-title {
@@ -189,32 +241,140 @@
         color: #ffffff;
         margin-bottom: 0.5rem;
         line-height: 1.5;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .publication-title a {
+        color: #ffffff;
+        border-bottom: 1px solid transparent;
+      }
+
+      .publication-title a:hover {
+        color: var(--accent-red);
+        border-bottom: 1px solid var(--accent-red);
       }
 
       .publication-authors {
-        color: #999999;
+        color: #ffffff;
         font-size: 0.95rem;
         margin-bottom: 0.4rem;
       }
 
       .publication-venue {
-        color: #888888;
+        color: #cccccc;
         font-size: 0.9rem;
         font-style: italic;
         margin-bottom: 0.6rem;
       }
 
+      .publication-tldr {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 0.92rem;
+        margin-bottom: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .publication-tldr span.tldr-label {
+        color: #ffffff;
+        font-weight: 700;
+        margin-right: 0.35rem;
+      }
+
       .publication-links {
         font-size: 0.9rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
       }
 
       .publication-links a {
         color: #888888;
-        margin-right: 1rem;
+        margin-right: 0;
       }
 
       .publication-links a:hover {
+        color: var(--accent-red);
+      }
+
+      .publication-links a.pub-btn {
+        color: #000000;
+      }
+
+      .publication-links a.pub-btn:hover {
         color: #ffffff;
+      }
+
+      /* Publication action buttons (project page / arXiv / abstract / bibtex) */
+      .pub-btn {
+        display: inline-flex;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        color: #000000;
+        padding: 0.35rem 0.85rem;
+        border-radius: 4px;
+        font-size: 0.82rem;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        line-height: 1.4;
+        letter-spacing: normal;
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .pub-btn:hover {
+        color: #ffffff;
+        border-color: var(--accent-red);
+        background-color: var(--accent-red);
+        text-decoration: none;
+      }
+
+      .pub-btn.active {
+        color: #ffffff;
+        border-color: var(--accent-red);
+        background-color: var(--accent-red);
+      }
+
+      .pub-btn .fa-chevron-down {
+        margin-left: 0.4rem;
+        font-size: 0.7rem;
+        transition: transform 0.2s ease;
+      }
+
+      .pub-btn.active .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      /* Dropdown panels (abstract / bibtex) */
+      .pub-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .pub-dropdown-inner {
+        padding-top: 0.9rem;
+        color: #cccccc;
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      .pub-dropdown pre {
+        background-color: #111111;
+        border: 1px solid #1f1f1f;
+        border-radius: 4px;
+        padding: 0.9rem 1rem;
+        overflow-x: auto;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        font-size: 0.78rem;
+        color: #b8d9ff;
+        line-height: 1.5;
       }
 
       /* Responsive Design */
@@ -250,13 +410,6 @@
       }
 
       /* Art Section */
-      #art-box {
-        border: 1px solid #2a2a2a;
-        border-radius: 6px;
-        padding: 1.5rem;
-        background-color: #0d0d0d;
-      }
-
       #art-grid {
         column-count: 3;
         column-gap: 0.8rem;
@@ -291,6 +444,45 @@
 
       @media (max-width: 480px) {
         #art-grid {
+          column-count: 1;
+        }
+      }
+
+      /* Adventures Section */
+      #adventures-grid {
+        column-count: 3;
+        column-gap: 0.8rem;
+      }
+
+      #adventures-grid img {
+        width: 100%;
+        display: block;
+        margin-bottom: 0.8rem;
+        border-radius: 3px;
+        border: 1px solid #1a1a1a;
+        break-inside: avoid;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      #adventures-grid img:hover {
+        opacity: 0.85;
+        transform: scale(1.01);
+      }
+
+      #adventures-empty {
+        color: #777777;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      @media (max-width: 768px) {
+        #adventures-grid {
+          column-count: 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #adventures-grid {
           column-count: 1;
         }
       }
@@ -337,6 +529,7 @@
         </div>
       </div>
 
+      <div class="section-box">
       <h2>Publications</h2>
       
       <div class="publication-item">
@@ -352,9 +545,32 @@
           <div class="publication-authors">
             Kehlani Fay, Darin Anthony Djapri, Anya Zorin, James Clinton, Ali El Lahib, Hao Su, Michael T. Tolley, Sha Yi, Xiaolong Wang
           </div>
+          <div class="publication-venue">
+            International Conference on Learning Representations (ICLR), 2026
+          </div>
+          <div class="publication-tldr">
+            <span class="tldr-label">TL;DR:</span>Design discovery and co-design of dexterous robot hands, with zero-shot sim-to-real transfer.
+          </div>
           <div class="publication-links">
-            <a href="https://an-axolotl.github.io/co-design-for-dexterity.github.io/">project page</a>
-            <a href="https://arxiv.org/abs/2512.03743">arXiv</a>
+            <a class="pub-btn" href="https://an-axolotl.github.io/HouseofDextra/" target="_blank">Project Page</a>
+            <a class="pub-btn" href="https://arxiv.org/abs/2512.03743" target="_blank">arXiv</a>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'abstract-dextra')">Abstract <i class="fas fa-chevron-down"></i></button>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'bibtex-dextra')">BibTeX <i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div class="pub-dropdown" id="abstract-dextra">
+            <div class="pub-dropdown-inner">
+              Dexterous manipulation is limited by both control and design, without consensus as to what makes manipulators best for performing dexterous tasks. This raises a fundamental challenge: how should we design and control robot manipulators that are optimized for dexterity? We present a co-design framework that learns task-specific hand morphology and complementary dexterous control policies. The framework supports 1) an expansive morphology search space including joint, finger, and palm generation, 2) scalable evaluation across the wide design space via morphology-conditioned cross-embodied control, and 3) real-world fabrication with accessible components. We evaluate the approach across multiple dexterous tasks, including in-hand rotation with simulation and real deployment. Our framework enables an end-to-end pipeline that can design, train, fabricate, and deploy a new robotic hand in under 24 hours.
+            </div>
+          </div>
+          <div class="pub-dropdown" id="bibtex-dextra">
+            <div class="pub-dropdown-inner">
+<pre>@article{fay2025crossembodied,
+  title={Cross Embodied Co-Design for Dexterous Hands},
+  author={Fay, Kehlani and Djapri, Darin and Zorin, Anya and Clinton, James and El Lahib, Ali and Su, Hao and Tolley, Michael T. and Yi, Sha and Wang, Xiaolong},
+  journal={International Conference on Learning Representations (ICLR)},
+  year={2026}
+}</pre>
+            </div>
           </div>
         </div>
       </div>
@@ -375,9 +591,29 @@
           <div class="publication-venue">
             Pre-Arxiv, Conference Submission
           </div>
+          <div class="publication-tldr">
+            <span class="tldr-label">TL;DR:</span>Generalizable egocentric catching, both underhand and overhand.
+          </div>
           <div class="publication-links">
-            <a href="https://anonymous-user-conferences.github.io/IROS2026/">pre-release project page</a>
-            <a href="https://drive.google.com/file/d/1AoS01Q21ZQcORHxF-nTVMgbi8HrWivFN/view?usp=sharing">pre-Arxiv</a>
+            <a class="pub-btn" href="https://anonymous-user-conferences.github.io/IROS2026/" target="_blank">Project Page</a>
+            <a class="pub-btn" href="https://drive.google.com/file/d/1AoS01Q21ZQcORHxF-nTVMgbi8HrWivFN/view?usp=sharing" target="_blank">pre-arXiv</a>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'abstract-catch')">Abstract <i class="fas fa-chevron-down"></i></button>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'bibtex-catch')">BibTeX <i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div class="pub-dropdown" id="abstract-catch">
+            <div class="pub-dropdown-inner">
+              Catching arbitrary objects requires robots to adapt in real-time to changing visual observations, unseen object properties, and diverse contact dynamics. This paper presents Catch It All!, an autonomous catching framework for humanoid robots that solves this problem without motion capture or teleoperation. Catch It All! develops a generalizable, egocentric control pipeline at 50 Hz alongside a safety-aware sim-to-real curriculum allowing real-time catching of novel objects. The policy is trained entirely in simulation using safety-aware curricula that ensure safe behavior near torque limits and avoid self-collision. The resulting policy is deployed zero-shot on a Unitree G1 humanoid robot without any fine-tuning. We evaluate across 11 novel objects spanning wide variation in size, shape, toss ranges, mass, and restitution, achieving strong catch success rates in both simulation and real-world experiments.
+            </div>
+          </div>
+          <div class="pub-dropdown" id="bibtex-catch">
+            <div class="pub-dropdown-inner">
+<pre>@misc{fay2026catchitall,
+  title={Catch It All!: Generalizable Dynamic Catching with a Dexterous Hand},
+  author={Fay, Kehlani and Shukla, Arth and Liu, Patrick and Djapri, Darin and Buynitsky, Alexiy and Hansen, Nicklas},
+  year={2026},
+  note={Pre-print, under review}
+}</pre>
+            </div>
           </div>
         </div>
       </div>
@@ -398,9 +634,29 @@
           <div class="publication-venue">
             Conference on Robot Learning (CoRL), 2025
           </div>
+          <div class="publication-tldr">
+            <span class="tldr-label">TL;DR:</span>Understanding how cross-embodiment scales with locomotion.
+          </div>
           <div class="publication-links">
-            <a href="https://embodiment-scaling-laws.github.io/">project page</a>
-            <a href="https://arxiv.org/abs/2505.05753">arXiv</a>
+            <a class="pub-btn" href="https://embodiment-scaling-laws.github.io/" target="_blank">Project Page</a>
+            <a class="pub-btn" href="https://arxiv.org/abs/2505.05753" target="_blank">arXiv</a>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'abstract-scaling')">Abstract <i class="fas fa-chevron-down"></i></button>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'bibtex-scaling')">BibTeX <i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div class="pub-dropdown" id="abstract-scaling">
+            <div class="pub-dropdown-inner">
+              Cross-embodiment generalization underpins the vision of building generalist embodied agents for any robot, yet its enabling factors remain poorly understood. We investigate embodiment scaling laws, the hypothesis that increasing the number of training embodiments improves generalization to unseen ones, using robot locomotion as a test bed. We procedurally generate ~1,000 embodiments with topological, geometric, and joint-level kinematic variations, and train policies on random subsets. We observe positive scaling trends supporting the hypothesis, and find that embodiment scaling enables substantially broader generalization than data scaling on fixed embodiments. Our best policy, trained on the full dataset, transfers zero-shot to novel embodiments in simulation and the real world, including the Unitree Go2 and H1. These results represent a step toward general embodied intelligence, with relevance to adaptive control for configurable robots, morphology co-design, and beyond.
+            </div>
+          </div>
+          <div class="pub-dropdown" id="bibtex-scaling">
+            <div class="pub-dropdown-inner">
+<pre>@inproceedings{ai2025embodiment,
+  title={Towards Embodiment Scaling Laws in Robot Locomotion},
+  author={Ai, Bo and Dai, Liu and Bohlinger, Nico and Li, Dichen and Mu, Tongzhou and Wu, Zhanxin and Fay, Kehlani and Christensen, Henrik I. and Peters, Jan and Su, Hao},
+  booktitle={Conference on Robot Learning (CoRL)},
+  year={2025}
+}</pre>
+            </div>
           </div>
         </div>
       </div>
@@ -411,13 +667,33 @@
         </div>
         <div class="publication-content">
           <div class="publication-title">
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WYBxpRoAAAAJ&authuser=4&citation_for_view=WYBxpRoAAAAJ:u-x6o8ySG0sC">Multi-AUV Marine Life Tracking with Single Hydrophone Payloads via a Hidden Markov Model Equipped Particle Filter</a>
+            <a href="https://arxiv.org/abs/2606.22335">Multi-AUV Marine Life Tracking with Single Hydrophone Payloads via a Hidden Markov Model Equipped Particle Filter</a>
           </div>
           <div class="publication-authors">
             Christopher Herrera, Kehlani Fay, Christopher Clark, Alberto Soto, Christopher G Lowe, Mario Espinoza
           </div>
+          <div class="publication-tldr">
+            <span class="tldr-label">TL;DR:</span>Tracking sharks with multiple AUVs, each carrying just one hydrophone, using an HMM-based particle filter to fuse their measurements.
+          </div>
           <div class="publication-links">
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WYBxpRoAAAAJ&authuser=4&citation_for_view=WYBxpRoAAAAJ:u-x6o8ySG0sC">paper</a>
+            <a class="pub-btn" href="https://arxiv.org/abs/2606.22335" target="_blank">arXiv</a>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'abstract-auv')">Abstract <i class="fas fa-chevron-down"></i></button>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'bibtex-auv')">BibTeX <i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div class="pub-dropdown" id="abstract-auv">
+            <div class="pub-dropdown-inner">
+              Researchers tag and track marine animals to study migration patterns, human impacts on behavior, and behavioral shifts due to climate change. Accurate data collection often requires tagging individual animals to collect spatio-temporal state estimates of the animal's geo-position and depth. Acoustic transmitters are prominent due to their continuous communication without requiring retrieval or surfacing to collect data. These transmitters emit underwater acoustic pulses which can be detected by hydrophones. However, the frequent movement of aquatic animals results in high data loss when the animal moves out of the detection range of a stationary hydrophone. Autonomous underwater vehicle (AUV) systems offer a solution for localizing transmitters with higher resolution over longer periods of time. Such systems previously deployed have often required multiple hydrophones mounted on a large frame carried by the AUV, increasing drag and limiting speed. This work provides an alternative by equipping multiple AUVs with a single compact hydrophone payload. A particle filter algorithm equipped with a hidden Markov model (HMM) behavioral motion model fuses measurements from multiple AUVs to estimate the transmitter's position. Real-world data shows a root mean square error (RMSE) of approximately 10 meters for short-term deployments, and a larger simulated dataset shows an RMSE of approximately 15 meters for longer deployments over a larger area. The HMM fit to historical animal movement data outperforms a generic velocity motion model, and both outperform a baseline random walk motion model.
+            </div>
+          </div>
+          <div class="pub-dropdown" id="bibtex-auv">
+            <div class="pub-dropdown-inner">
+<pre>@article{herrera2026multiauv,
+  title={Multi-AUV Marine Life Tracking with Single Hydrophone Payloads via a Hidden Markov Model Equipped Particle Filter},
+  author={Herrera, Christopher and Fay, Kehlani and Clark, Christopher and Soto, Alberto and Lowe, Christopher G. and Espinoza, Mario},
+  journal={arXiv preprint arXiv:2606.22335},
+  year={2026}
+}</pre>
+            </div>
           </div>
         </div>
       </div>
@@ -437,20 +713,100 @@
           <div class="publication-venue">
             Symposium On Applied Computing, 2023
           </div>
+          <div class="publication-tldr">
+            <span class="tldr-label">TL;DR:</span>Multi-robot motion planning for AUV swarms that plan trajectories around predicted shark movement, not just current position.
+          </div>
           <div class="publication-links">
-            <a href="https://docs.google.com/presentation/d/1T-2BDdvBwcgFfQvNIiSkEVgcK2PtoIZC/edit?usp=sharing&ouid=114461033462074451636&rtpof=true&sd=true">slides</a>
-            <a href="https://drive.google.com/file/d/1_m9TssNzQBcxguMASQgxSkwmWkRwgDtT/view?usp=sharing">pdf</a>
+            <a class="pub-btn" href="https://dl.acm.org/doi/abs/10.1145/3555776.3577749" target="_blank">arXiv</a>
+            <a class="pub-btn" href="https://docs.google.com/presentation/d/1T-2BDdvBwcgFfQvNIiSkEVgcK2PtoIZC/edit?usp=sharing&ouid=114461033462074451636&rtpof=true&sd=true" target="_blank">Slides</a>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'abstract-expansive')">Abstract <i class="fas fa-chevron-down"></i></button>
+            <button class="pub-btn" onclick="toggleDropdown(this, 'bibtex-expansive')">BibTeX <i class="fas fa-chevron-down"></i></button>
+          </div>
+          <div class="pub-dropdown" id="abstract-expansive">
+            <div class="pub-dropdown-inner">
+              Traditional techniques for marine life tracking use stationary receivers that detect and obtain measurements from tagged animals. Recently, such static systems have been replaced by multiple mobile robots, e.g., autonomous underwater vehicles (AUVs), equipped with omni-directional hydrophones that can accurately localize marine life. In this paper, the application of homogeneous multi-AUV systems to track and localize marine life is used as a motivating example to develop new MRMP (Multi-Robot Motion Planning) algorithms. These algorithms generate trajectories that maximize a new fitness function that incorporates 1) probabilistic motion models generated from historical data of live sharks, and 2) ideal AUV formations for observing a shark from multiple sensor vantage points. The two expansive RRT variants, named Independent State Expansion (ISE) planning and Joint State Expansion (JSE) planning, differ in how new samples are randomly generated during the algorithm's random search. The fitness function was developed to quantify how accurately the positioning of AUVs would trilaterate the target animal. Through simulation, it was found that the Joint planner was 70% faster with respect to run time than the Independent planner, while both could produce similar mean fitness function values. The fitness for these variants was also measured for simulations where different target motion models were used when calculating the fitness function, highlighting the improved performance when using actual target motion models.
+            </div>
+          </div>
+          <div class="pub-dropdown" id="bibtex-expansive">
+            <div class="pub-dropdown-inner">
+<pre>@inproceedings{fay2023multirobot,
+  title={Multi-Robot Expansive Planning and Trajectory Evaluation for Tracking and Localization of Marine Life},
+  author={Fay, Kehlani A. and Giordano, Michael and Soto, Alberto and Clark, Christopher M. and Spurgeon, Emily and Anderson, James and Lowe, Christopher G.},
+  booktitle={Proceedings of the 38th ACM/SIGAPP Symposium on Applied Computing},
+  series={SAC '23},
+  pages={808--815},
+  year={2023},
+  publisher={ACM},
+  doi={10.1145/3555776.3577749}
+}</pre>
+            </div>
           </div>
         </div>
       </div>
       
-      <h2 id="art">Art and Misc.</h2>
+      </div>
+      <!-- /Publications section-box -->
 
-      <div id="art-box">
-        <div id="art-grid"></div>
-        <p id="art-empty" style="display:none;">No art found yet — add images to the <code>art/</code> folder and list them in <code>art/manifest.json</code>.</p>
+      <div class="section-box">
+      <h2 id="art">Art and Random Projects</h2>
+
+      <div id="art-grid"></div>
+      <p id="art-empty" style="display:none;">No art found yet — add images to the <code>art/</code> folder and list them in <code>art/manifest.json</code>.</p>
+      </div>
+
+      <div class="section-box">
+      <h2 id="adventures">Hiking Adventures</h2>
+
+      <div id="adventures-grid"></div>
+      <p id="adventures-empty" style="display:none;">No adventure photos found yet — add images to the <code>adventures/</code> folder and list them below.</p>
       </div>
     </div>
+
+    <script>
+      // Generic dropdown toggler for the Abstract / BibTeX buttons on each
+      // publication. Animates open/closed using max-height, then releases
+      // the cap to "none" once fully open so the box always fits the full
+      // content, however long the abstract or bibtex block is.
+      function toggleDropdown(button, id) {
+        const panel = document.getElementById(id);
+        if (!panel) return;
+
+        const isOpen = panel.classList.contains('open');
+
+        if (isOpen) {
+          // Closing: make sure we're animating from a real pixel height
+          // (not "none"), then collapse to 0 on the next frame.
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          panel.classList.remove('open');
+          button.classList.remove('active');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              panel.style.maxHeight = '0px';
+            });
+          });
+        } else {
+          panel.classList.add('open');
+          button.classList.add('active');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+
+          const releaseCap = (e) => {
+            if (e.propertyName === 'max-height' && panel.classList.contains('open')) {
+              panel.style.maxHeight = 'none';
+            }
+            panel.removeEventListener('transitionend', releaseCap);
+          };
+          panel.addEventListener('transitionend', releaseCap);
+        }
+      }
+
+      // Keep open dropdowns sized correctly if the window is resized
+      // (e.g. text reflows to more/fewer lines on mobile rotation).
+      window.addEventListener('resize', () => {
+        document.querySelectorAll('.pub-dropdown.open').forEach(panel => {
+          panel.style.maxHeight = 'none';
+        });
+      });
+    </script>
 
     <script>
       // To add new art: drop the image file into the art/ folder, then add
@@ -463,12 +819,16 @@
         "lavalamps.png",
         "naut.png",
         "stars.jpg",
+        "muddsub.png",
+        "alfie_ip.png",
         "street.jpeg",
-        "sunflower.jpg",
+        "ceramic_bowl.png",
+        //"sunflower.jpg",
         "fall.jpeg",
         "truck.jpeg",
-        "WoodenStainedGlass.png",
-        "CADFrontProfile.png"
+        "CADFrontProfile.png",
+        "crush.png", 
+        "bus.png"
       ];
 
       const artGrid = document.getElementById('art-grid');
@@ -483,6 +843,67 @@
       } else {
         document.getElementById('art-empty').style.display = 'block';
       }
+    </script>
+
+    <script>
+      // Adventures collage.
+      // Static HTML can't read a folder's contents on its own, so this tries
+      // an "adventures/manifest.json" file first (a JSON array of filenames,
+      // e.g. ["hike1.jpg","summit.png"]) so you only ever have to touch the
+      // manifest, not this file. If no manifest is found, it falls back to
+      // the hardcoded list below — edit that list by hand if you'd rather
+      // not maintain a manifest.json.
+      const fallbackAdventureImages = [
+        "big_sur.jpg",
+        "catalina.jpg",
+        "channel_islands.jpg",
+        "death_valley.jpg",
+        "eagle.jpg",
+        "glacier.jpg",
+        "glacier2.jpg",
+        "hike_montana.jpg",
+        "mojave2.jpg",
+        "mojave.jpg",
+        "lassen.jpg",
+        "moon_from_JTree.jpg",
+        "JTreeRocks.jpg",
+        "SB_hike.jpg",
+        "gc.jpg",
+        "yosemite.jpg",
+        "SD.jpg",
+        "sequoia.jpg",
+        "starry_np.jpg",
+        "tahoe_snow.jpg",
+        "torrey_pines.jpg",
+        "waterfall.jpg"
+      ];
+
+      const adventuresGrid = document.getElementById('adventures-grid');
+      const adventuresEmpty = document.getElementById('adventures-empty');
+
+      function renderAdventures(filenames) {
+        if (!filenames || !filenames.length) {
+          adventuresEmpty.style.display = 'block';
+          return;
+        }
+        adventuresEmpty.style.display = 'none';
+        adventuresGrid.innerHTML = '';
+        filenames.forEach(filename => {
+          const img = document.createElement('img');
+          img.src = 'adventures/' + filename;
+          img.alt = filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+          img.loading = 'lazy';
+          adventuresGrid.appendChild(img);
+        });
+      }
+
+      fetch('adventures/manifest.json')
+        .then(res => {
+          if (!res.ok) throw new Error('no manifest');
+          return res.json();
+        })
+        .then(filenames => renderAdventures(filenames))
+        .catch(() => renderAdventures(fallbackAdventureImages));
     </script>
 
     <script>
