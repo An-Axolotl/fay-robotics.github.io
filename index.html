@@ -971,23 +971,5 @@
         .catch(() => renderAdventures(fallbackAdventureImages));
     </script>
 
-    <script>
-      // Play only a specific clip range of the Catch It All! video (0:25 - 2:08),
-      // looping within that window instead of the full file.
-      const catchVideo = document.getElementById('catch-video');
-      const startTime = 25;   // 0:25
-      const endTime = 128;    // 2:08
-
-      catchVideo.addEventListener('loadedmetadata', () => {
-        catchVideo.currentTime = startTime;
-      });
-
-      catchVideo.addEventListener('timeupdate', () => {
-        if (catchVideo.currentTime >= endTime) {
-          catchVideo.currentTime = startTime;
-        }
-      });
-    </script>
-
   </body>
 </html>
